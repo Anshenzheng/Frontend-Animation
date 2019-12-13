@@ -1,4 +1,4 @@
-# CSS3 Animation
+# CSS3 Animation Basic
 
 ### 写在前面
 在前端开发中，很多地方不可避免地需要使用一些动画特效。我们无须借助Javascript、Flash等技术，单纯通过CSS3便能满足大部分需求。
