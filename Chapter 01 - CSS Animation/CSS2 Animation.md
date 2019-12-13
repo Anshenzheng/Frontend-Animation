@@ -87,7 +87,7 @@ div{
 ```
 
 
-详细代码，请参见![css-animation-example-01]("css-animation-example-01.html")
+详细代码，请参见![css-animation-example-01](css-animation-example-01.html)
 
 ### CSS3 动画属性
 
@@ -105,7 +105,7 @@ div{
 
 #### animation-timing-function
 指定动画的速度曲线, 默认为 ease。
-![]("animation-timing-function.png")
+![](https://raw.githubusercontent.com/Anshenzheng/Frontend-Animation/master/Chapter%2001%20-%20CSS%20Animation/images/animation-timing-function.png)
 
 #### animation-delay
 指定动画何时开始，默认为0
