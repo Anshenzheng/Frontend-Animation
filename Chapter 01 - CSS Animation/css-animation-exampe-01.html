@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Animation Example 01</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: first-animation 5s;
+            -moz-animation: first-animation 5s;
+            -webkit-animation: first-animation 5s;
+            -o-animation: first-animation 5s
+
+        }
+
+        @keyframes first-animation {
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+
+        @-moz-keyframes first-animation /* To support the Firefox browser */
+        {
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+
+        @-webkit-keyframes first-animation { /*To support Safari & Chrome browser */
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+
+        @-o-keyframes first-animation { /*To support Opera browser */
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
