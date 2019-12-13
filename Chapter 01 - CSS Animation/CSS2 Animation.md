@@ -112,9 +112,11 @@ div{
 
 #### animation-iteration-count
 指定动画的播放次数，默认为1
+若需不间断执行，则可指定为infinite
 
 #### animation-direction
-指定动画是否在下一周期逆向播放，默认为 normal
+指定动画是否在下一周期逆向播放，默认为 normal，即正常播放。
+另可取值为alternate，意指动画轮流反向播放。
 
 #### animation-play-state
 动画状态 - 是否正在运行或者暂停，默认为running
