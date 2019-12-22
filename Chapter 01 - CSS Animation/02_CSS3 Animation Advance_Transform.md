@@ -17,8 +17,10 @@ transform: none|transform-functions
 
 ### transform-functions详解
 ![](https://raw.githubusercontent.com/Anshenzheng/Frontend-Animation/master/Chapter%2001%20-%20CSS%20Animation/images/transform_example_01.gif)
+详细代码示例，见[transform-example-01.html](https://github.com/Anshenzheng/Frontend-Animation/blob/master/Chapter%2001%20-%20CSS%20Animation/css-animation-exampe-01.html)
 
 #### transform function列表
+
 ![](https://raw.githubusercontent.com/Anshenzheng/Frontend-Animation/master/Chapter%2001%20-%20CSS%20Animation/images/transform.png)
 
 #### transfrom-origin
@@ -44,9 +46,9 @@ rotate(angle)
 
 **示例** 
 ```CSS
-	.rotate-element{
-		transform: rotate(30deg) /**指定该元素旋转30度**/
-		transform-origin: 0 0 /**指定旋转基点为元素左上角**/
+.rotate-element{
+	transform: rotate(30deg) /**指定该元素旋转30度**/
+	transform-origin: 0 0 /**指定旋转基点为元素左上角**/
 	}
 ```
 
@@ -58,9 +60,8 @@ rotate(x,y,z,angle)
 
 **示例** 
 ```CSS
-	.rotate-element{
-		transform: rotate3d(0,1,0,180deg) /**指定元素沿y轴旋转180度**/
-	
+.rotate-element{
+	transform: rotate3d(0,1,0,180deg) /**指定元素沿y轴旋转180度**/
 	}
 ```
 
@@ -71,8 +72,8 @@ rotateX(angle)
 
 **示例** 
 ```CSS
-	.rotate-element{
-		transform: rotateX(30deg)/**沿X轴顺时针旋转30度**/
+.rotate-element{
+	transform: rotateX(30deg)/**沿X轴顺时针旋转30度**/
 	}
 ```
 
@@ -83,8 +84,8 @@ rotateY(angle)
 
 **示例** 
 ```CSS
-	.rotate-element{
-		transform: rotateY(30deg)/**沿Y轴顺时针旋转30度**/
+.rotate-element{
+	transform: rotateY(30deg)/**沿Y轴顺时针旋转30度**/
 	}
 ```
 
@@ -95,8 +96,8 @@ rotateZ(angle)
 
 **示例** 
 ```CSS
-	.rotate-element{
-		transform: rotateZ(30deg)/**沿Z轴顺时针旋转30度**/
+.rotate-element{
+	transform: rotateZ(30deg)/**沿Z轴顺时针旋转30度**/
 	}
 ```
 
@@ -269,256 +270,11 @@ z = c*x0 + g*y0 + k*z0 + o
 同上，通过矩阵的转换，我们可以实现所有以上通过旋转，缩放，拉伸，位移产生的3D变换效果。
 
 transform相关的知识就先介绍到这里，下面是用rotate和transform-origin实现的一个经典的8大行星环绕太阳的动画：
+
 **效果图：**
 ![](https://raw.githubusercontent.com/Anshenzheng/Frontend-Animation/master/Chapter%2001%20-%20CSS%20Animation/images/solar-system.png)
 
 **代码：**
-```HTML5
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Transform Example 01</title>
-    <style>
-        .galaxy{
-            width:1300px;
-            height:1300px;
-            position: relative;
-            border:1px solid black;
-        }
-
-        .sun{
-            width: 100px;
-            height: 100px;
-            background: #ff6f13;
-            border-radius: 50%;
-            position: absolute;
-            left: 600px;
-            top:600px;
-            box-shadow: rgba(242,120,75,0.4) 0 0 10px 10px;
-        }
-
-        .mercury{
-            width: 40px;
-            height: 40px;
-            background: antiquewhite;
-            border-radius: 20px;
-            position: absolute;
-            left:530px;
-            top:630px;
-            transform-origin: 120px 20px;
-            animation: rotation 2s linear infinite;
-
-        }
-
-        .venus{
-            width: 40px;
-            height: 40px;
-            background: #c1b386;
-            border-radius: 50%;
-            position: absolute;
-            left:480px;
-            top:630px;
-            transform-origin: 170px 20px;
-            animation: rotation 5s linear infinite;
-        }
-
-        .earth{
-            width: 40px;
-            height: 40px;
-            background: #0096d6;
-            border-radius: 50%;
-            position: absolute;
-            left:430px;
-            top:630px;
-            transform-origin: 220px 20px;
-            animation: rotation 8s linear infinite;
-        }
-
-        .mars{
-            width: 40px;
-            height: 40px;
-            background: #d94320;
-            border-radius: 50%;
-            position: absolute;
-            left:380px;
-            top:630px;
-            transform-origin: 270px 20px;
-            animation: rotation 15s linear infinite;
-        }
-
-        .jupiter{
-            width: 40px;
-            height: 40px;
-            background: #c2b59c;
-            border-radius: 50%;
-            position: absolute;
-            left:330px;
-            top:630px;
-            transform-origin: 320px 20px;
-            animation: rotation 99s linear infinite;
-        }
-
-        .saturn{
-            width: 40px;
-            height: 40px;
-            background: rgb(164, 158, 144);
-            border-radius: 50%;
-            position: absolute;
-            left:280px;
-            top:630px;
-            transform-origin: 370px 20px;
-            animation: rotation 243s linear infinite;
-        }
-
-        .uranus{
-            width: 40px;
-            height: 40px;
-            background: #a2dcd3;
-            border-radius: 50%;
-            position: absolute;
-            left:230px;
-            top:630px;
-            transform-origin: 420px 20px;
-            animation: rotation 704s linear infinite;
-        }
-
-        .neptune{
-            width: 40px;
-            height: 40px;
-            background: #2eeef8;
-            border-radius: 50%;
-            position: absolute;
-            left:180px;
-            top:630px;
-            transform-origin: 470px 20px;
-            animation: rotation 1400s linear infinite;
-        }
-
-        .mercury-track{
-            width: 200px;
-            height:200px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:550px;
-            top:550px;
-            position: absolute;
-            z-index: -1;
-        }
-
-
-        .venus-track{
-            width: 300px;
-            height:300px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:500px;
-            top:500px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .earth-track{
-            width: 400px;
-            height:400px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:450px;
-            top:450px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .mars-track{
-            width: 500px;
-            height:500px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:400px;
-            top:400px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .jupiter-track{
-            width: 600px;
-            height:600px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:350px;
-            top:350px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .satrun-track{
-            width: 700px;
-            height:700px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:300px;
-            top:300px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .uranus-track{
-            width: 800px;
-            height:800px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:250px;
-            top:250px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .neptune-track{
-            width: 900px;
-            height:900px;
-            border-radius: 50%;
-            border: 1px dashed rgba(61, 59, 41, 0.53);
-            left:200px;
-            top:200px;
-            position: absolute;
-            z-index: -1;
-        }
-
-        @keyframes rotation {
-            to{
-                transform: rotate(1turn);
-            }
-            
-        }
-        .text-align-center{
-            text-align: center;
-            vertical-align: center;
-            line-height: 40px;
-        }
-    </style>
-</head>
-<body style="background: black">
-<div class="galaxy">
-    <div class='sun'></div>
-    <div class='mercury text-align-center'>水</div>
-    <div class='venus text-align-center'>金</div>
-    <div class='earth text-align-center'>地</div>
-    <div class='mars text-align-center'>火</div>
-    <div class='jupiter text-align-center'>木</div>
-    <div class='saturn text-align-center'>土</div>
-    <div class='uranus text-align-center'>天</div>
-    <div class='neptune text-align-center'>海</div>
-    <div class="mercury-track"></div>
-    <div class="venus-track"></div>
-    <div class="earth-track"></div>
-    <div class="mars-track"></div>
-    <div class="jupiter-track"></div>
-    <div class="satrun-track"></div>
-    <div class="uranus-track"></div>
-    <div class="neptune-track"></div>
-</div>
-</body>
-</html>
-```
+见示例[transform-example-02.html](https://github.com/Anshenzheng/Frontend-Animation/blob/master/Chapter%2001%20-%20CSS%20Animation/transform-exampe-02.html)
 
 
